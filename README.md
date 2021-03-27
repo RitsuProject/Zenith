@@ -6,3 +6,8 @@ A Github Action (made especially for Ritsu) that scraps the index on Reddit from
 ## Tiny Alert
 
 This code is a mess and was done very quickly, it can contain unexpected bugs that unfortunately I will only discover over time, I will continue to refactor and reorganize some things but it is almost certainly still going to be bad. Proceed with caution.
+
+## Credits
+
+Total credits to ManuelDevelopment, I just migrated to TypeScript and made some changes. The original code was made by him and you can find it here:
+https://github.com/ManuelDevelopment/AnimeThemeBrowser/blob/master/bin/scanMongo.js
