@@ -16,7 +16,7 @@ class Version {
   @prop({ required: true })
   public index!: number
 
-  @prop({ required: true, _id: false })
+  @prop({ type: Source, required: true, _id: false })
   public sources!: Source[]
 }
 
@@ -39,7 +39,7 @@ class Theme {
   @prop()
   public title!: string
 
-  @prop({ _id: false })
+  @prop({ type: Version, _id: false })
   public versions!: Version[]
 }
 

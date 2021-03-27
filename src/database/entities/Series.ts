@@ -18,7 +18,7 @@ class Series {
   @prop({ required: true, _id: false })
   public season!: Season
 
-  @prop()
+  @prop({ type: String })
   public aliases: string[]
 }
 

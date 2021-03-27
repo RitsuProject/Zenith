@@ -13,6 +13,7 @@ import Theme from './database/entities/Theme'
 import mongoConnect from './database/MongoConnect'
 import async, { ErrorCallback } from 'async'
 import { mongoose } from '@typegoose/typegoose'
+import generateThemeID from './utils/generateThemeID'
 config()
 
 interface SeasonObject {
@@ -117,7 +118,7 @@ async function scanSeason(
 
       async.series(
         [
-          async (callback) => {
+          async () => {
             const alreadyOnDatabase = await Series.findById(seriesId)
             if (!alreadyOnDatabase) {
               let series = {
@@ -194,8 +195,8 @@ async function scanThemes(
             continue
           }
 
-          let index = matches[2] || 1 - 1
-          let title = matches[4]
+          const index = matches[2] || 1 - 1
+          const title = matches[4]
 
           if (themes[type] === undefined) {
             themes[type] = []
@@ -259,14 +260,6 @@ async function scanThemes(
     },
     callback
   )
-}
-
-function generateThemeID() {
-  return new Promise(async (resolve) => {
-    let id = Math.random().toString(36).substring(7)
-    let existing = await Theme.findById(id)
-    resolve(existing ? await generateThemeID() : id)
-  })
 }
 
 initAnimeThemesScan()
