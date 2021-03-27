@@ -2,7 +2,12 @@ name: 'Zenith'
 on:
   schedule:
     - cron: '0 23 30 * *'
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'owo what is this'
+        required: false
+        default: 'uwu what is this'
 
 jobs:
   run:
