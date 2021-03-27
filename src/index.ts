@@ -120,7 +120,7 @@ async function scanSeason(
           async (callback) => {
             const alreadyOnDatabase = await Series.findById(seriesId)
             if (!alreadyOnDatabase) {
-              const series = {
+              let series = {
                 _id: seriesId,
                 title: $(element).find('a').text(),
                 aliases:
@@ -181,7 +181,18 @@ async function scanThemes(
         let regex = /([A-Z]+)(?:(\d+))*(?: [vV](\d*))* "([^"]+)"/
         let matches = title.match(regex)
         if (matches) {
-          const type = matches[1]
+          let type: number
+          switch (matches[1]) {
+            case 'OP':
+              type = 0
+              break
+            case 'ED':
+              type = 1
+              break
+          }
+          if (type === undefined) {
+            continue
+          }
 
           let index = matches[2] || 1 - 1
           let title = matches[4]

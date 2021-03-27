@@ -1,4 +1,4 @@
-name: 'Zenith'
+name: 'Scan'
 on:
   schedule:
     - cron: '0 23 30 * *'

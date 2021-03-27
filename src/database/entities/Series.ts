@@ -2,7 +2,7 @@ import { DocumentType, getModelForClass, prop } from '@typegoose/typegoose'
 
 class Season {
   @prop()
-  public season!: number
+  public year!: number
 
   @prop()
   public quarter!: number
