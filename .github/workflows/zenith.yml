@@ -1,0 +1,18 @@
+name: 'Zenith'
+on:
+  schedule:
+    - cron: '0 23 30 * *'
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      MONGO_URI: ${{ secrets.MONGO_URI }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install
+      - run: npm start
