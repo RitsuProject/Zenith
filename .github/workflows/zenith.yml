@@ -2,6 +2,7 @@ name: 'Zenith'
 on:
   schedule:
     - cron: '0 23 30 * *'
+  workflow_dispatch
 
 jobs:
   run:
