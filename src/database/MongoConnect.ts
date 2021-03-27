@@ -11,8 +11,8 @@ export default function mongoConnect(uri: string) {
       .then(() => {
         return console.log(`[DATABASE] Successfully connected.`)
       })
-      .catch((error) => {
-        console.log('[DATABASE] Error connecting to database: ', error)
+      .catch(() => {
+        console.log('[DATABASE] Error connecting to database.')
         return process.exit(1)
       })
   }
